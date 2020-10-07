@@ -1,0 +1,22 @@
+{% extends "users/layout.html" %}
+
+{% block body %}
+
+    <div>
+        <p><h2>To visit Pet Project blog <br> You must be of legal authorization in your company</h2></p>    
+    </div> 
+    <div>
+        <p><h4>Please provide your credentials</h4></p>
+    </div> 
+{% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" maxlength = 24 required="required">
+        <input type="password" name="password" placeholder="Password" maxlength = 24 required="required">
+        <input type="submit" value="Login">
+    </form>
+{% endblock%}
+
