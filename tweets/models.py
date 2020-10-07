@@ -6,5 +6,8 @@ class Tweet(models.Model):
     content = models.TextField(blank=True, null=True)
     image = models.FileField(upload_to='images/', blank=True, null=True)
     
+    class Meta:
+        db_table = 'tweets' # Migrate 
+
     def __str__(self):
         return f"{self.content} {self.image}"
